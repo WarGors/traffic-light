@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+import { useEffect } from 'react';
+import { Route, withRouter } from 'react-router-dom';
 import './App.css';
+import TrafficLight from './trafficLight/trafficLight';
 
-function App() {
+function App(props) {
+  const path = props.history.location.pathname
+  
+  useEffect(() => {
+    const storageColor = localStorage.getItem('color')
+    const newPath = storageColor ? `/${storageColor}` : '/'
+    
+    props.history.push(path === '/' ? newPath : path)
+  }, [props.history, path])
+ 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Route path='/:color' exact component={TrafficLight} />
     </div>
   );
 }
 
-export default App;
+export default withRouter(App);

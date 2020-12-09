@@ -1,0 +1,27 @@
+.light {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.red {
+  background: rgb(60, 0, 0);
+  margin-top: 20px;
+}
+
+.yellow {
+  background: rgb(40, 40, 0);
+}
+
+.green {
+  background: rgb(0, 50, 0);
+}
+
+.not-active {
+  background-color: rgba(0, 0, 0, 0.3);
+}
